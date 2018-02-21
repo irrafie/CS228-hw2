@@ -107,7 +107,6 @@ public class Alphabet {
      * character is not present in the ordering
      */
     public int getPosition(char c) {
-        // TODO
         for(int i = 0; i < lookup.length; i++){
             if(lookup[i].character == c){
                 return i;

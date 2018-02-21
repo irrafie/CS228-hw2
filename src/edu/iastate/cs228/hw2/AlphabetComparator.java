@@ -24,7 +24,17 @@ public class AlphabetComparator implements Comparator<String> {
      * @throws NullPointerException if {@code ordering} is {@code null}
      */
     public AlphabetComparator(Alphabet ordering) throws NullPointerException {
-        // TODO
+        try{
+            if (ordering == null){
+                throw new NullPointerException("Null Pointer");
+            }
+
+            alphabet = ordering;
+        }
+
+        catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 
 

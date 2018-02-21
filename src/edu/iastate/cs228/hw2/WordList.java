@@ -27,6 +27,15 @@ public class WordList implements Cloneable {
    */
   public WordList(String[] contents) throws NullPointerException {
     // TODO
+    try{
+      if(words == null){
+        throw new NullPointerException("Null Pointer");
+      }
+      words = contents;
+    }
+    catch (NullPointerException e){
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -53,9 +62,7 @@ public class WordList implements Cloneable {
    *   the number of elements in the list
    */
   public int length() {
-    // TODO
-
-    return 0;
+    return words.length;
   }
 
   /**
@@ -72,6 +79,16 @@ public class WordList implements Cloneable {
   public String get(int idx) throws IndexOutOfBoundsException
   {
     // TODO
+    try{
+        if(idx < 0 || idx > length()){
+            throw new IndexOutOfBoundsException("Index Out of Bounds");
+        }
+
+        return words[idx];
+    }
+    catch (IndexOutOfBoundsException e){
+        e.printStackTrace();
+    }
 
     return null;
   }
@@ -104,6 +121,18 @@ public class WordList implements Cloneable {
    */
   public void swap(int idxA, int idxB) throws IndexOutOfBoundsException {
     // TODO
+      try{
+          if(idxA < 0 || idxA > words.length || idxB < 0 || idxB > words.length){
+              throw new IndexOutOfBoundsException("Index Out of Bounds");
+          }
+
+          String temp = words[idxA];
+          words[idxA] = words[idxB];
+          words[idxA] = temp;
+      }
+      catch (IndexOutOfBoundsException e){
+          e.printStackTrace();
+      }
   }
 
   /**
@@ -113,9 +142,7 @@ public class WordList implements Cloneable {
    *   the array used by the list to store its elements
    */
   public String[] getArray() {
-    // TODO
-
-    return null;
+    return words;
   }
 
   /**
