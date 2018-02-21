@@ -1,7 +1,10 @@
 package edu.iastate.cs228.hw2;
 
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 
 
 /**
@@ -52,6 +55,25 @@ public class WordList implements Cloneable {
    */
   public WordList(String filename) throws NullPointerException, FileNotFoundException {
     // TODO
+
+      try{
+          if(filename == null){
+              throw new NullPointerException("Null Pointer");
+          }
+          Scanner input = new Scanner(new FileReader(filename));
+          int i = 0;
+          while(input.hasNext()){
+              words[i] = input.next();
+              i++;
+          }
+      }
+      catch(NullPointerException e){
+          e.printStackTrace();
+      }
+
+      catch (FileNotFoundException e){
+          e.printStackTrace();
+      }
   }
 
 
@@ -105,7 +127,15 @@ public class WordList implements Cloneable {
    *   list
    */
   public void set(int idx, String newValue) throws IndexOutOfBoundsException {
-    // TODO
+      try{
+          if(idx < 0 || idx > length()){
+              throw new IndexOutOfBoundsException("Index Out of Bounds");
+          }
+          words[idx] = newValue;
+      }
+      catch (IndexOutOfBoundsException e){
+          System.out.println("Index to set is out of bounds");
+      }
   }
 
   /**
@@ -154,8 +184,12 @@ public class WordList implements Cloneable {
      * note: since Strings are immutable, you don't need to clone them
      */
 
-    // TODO
 
-    return null;
+      WordList next = new WordList(words);
+      for(int i = 0; i < words.length; i++){
+        next.words[i] = words[i];
+      }
+
+    return next;
   }
 }

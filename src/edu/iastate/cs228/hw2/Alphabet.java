@@ -3,6 +3,7 @@ package edu.iastate.cs228.hw2;
 
 import java.io.FileNotFoundException;
 import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 
 /**
@@ -60,9 +61,16 @@ public class Alphabet {
             if(filename == null){
                 throw new NullPointerException("Null Pointer");
             }
-            File input = new File(filename);
-            inputScan = new Scanner(input);
-        }
+            inputScan = new Scanner(new FileReader(filename));
+
+            int var = 0;
+
+            while(inputScan.hasNext()){
+                lookup[var].position = var;
+                lookup[var].character = inputScan.next().charAt(0);
+                var++;
+            }
+            }
         catch(FileNotFoundException e){
             e.printStackTrace();
         }
@@ -70,13 +78,7 @@ public class Alphabet {
             e.printStackTrace();
         }
 
-        int var = 0;
 
-        while(inputScan.hasNext()){
-            lookup[var].position = var;
-            lookup[var].character = inputScan.next().charAt(0);
-            var++;
-        }
 
     }
 
