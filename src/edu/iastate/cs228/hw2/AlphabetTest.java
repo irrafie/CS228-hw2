@@ -60,4 +60,5 @@ class AlphabetTest {
         testConstruct = new Alphabet(temp);
         assertEquals(testConstruct.isValid('/'),false);
     }
+
 }

@@ -60,7 +60,6 @@ public class AlphabetComparator implements Comparator<String> {
      */
     @Override
     public int compare(String a, String b) throws NullPointerException, IllegalArgumentException {
-        // TODO
         try{
             if(a == null || b == null){
                 throw new NullPointerException("Null Pointer");
