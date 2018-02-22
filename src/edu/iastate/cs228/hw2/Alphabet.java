@@ -68,12 +68,12 @@ public class Alphabet {
 
             while(inputNum.hasNext()){
                 var++;
-                inputNum.next();
+                inputNum.nextLine();
             }
             lookup = new CharAndPos[var];
             for(int i = 0; i < var; i++) {
                 //System.out.println(inputScan.next());
-                lookup[i] = new CharAndPos(inputScan.next().charAt(0), i);
+                lookup[i] = new CharAndPos(inputScan.nextLine().charAt(0), i);
             }
             }
         catch(FileNotFoundException e){
@@ -188,13 +188,11 @@ public class Alphabet {
 
         @Override
         public int hashCode() {
-
             return character ^ position;
         }
 
         @Override
         public String toString() {
-
             return "{" + character + ", " + position + "}";
         }
     }
