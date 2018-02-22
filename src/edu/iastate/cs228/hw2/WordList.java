@@ -31,7 +31,7 @@ public class WordList implements Cloneable {
   public WordList(String[] contents) throws NullPointerException {
     // TODO
     try{
-      if(words.equals(null)){
+      if(contents.equals(null)){
         throw new NullPointerException("Null Pointer");
       }
       words = contents;
@@ -55,16 +55,21 @@ public class WordList implements Cloneable {
    */
   public WordList(String filename) throws NullPointerException, FileNotFoundException {
     // TODO
-
       try{
           if(filename == null){
               throw new NullPointerException("Null Pointer");
           }
           Scanner input = new Scanner(new FileReader(filename));
+          Scanner inputNum = new Scanner(new FileReader(filename));
           int i = 0;
-          while(input.hasNext()){
-              words[i] = input.next();
+          while(inputNum.hasNext()){
               i++;
+              inputNum.nextLine();
+          }
+          words = new String[i];
+
+          for(int x = 0; x < i; x++){
+              words[x] = input.nextLine();
           }
       }
       catch(NullPointerException e){
@@ -150,7 +155,6 @@ public class WordList implements Cloneable {
    *   equal to the length of the list
    */
   public void swap(int idxA, int idxB) throws IndexOutOfBoundsException {
-    // TODO
       try{
           if(idxA < 0 || idxA > words.length || idxB < 0 || idxB > words.length){
               throw new IndexOutOfBoundsException("Index Out of Bounds");
@@ -158,7 +162,7 @@ public class WordList implements Cloneable {
 
           String temp = words[idxA];
           words[idxA] = words[idxB];
-          words[idxA] = temp;
+          words[idxB] = temp;
       }
       catch (IndexOutOfBoundsException e){
           e.printStackTrace();
@@ -183,7 +187,6 @@ public class WordList implements Cloneable {
     /*
      * note: since Strings are immutable, you don't need to clone them
      */
-
 
       WordList next = new WordList(words);
       for(int i = 0; i < words.length; i++){
