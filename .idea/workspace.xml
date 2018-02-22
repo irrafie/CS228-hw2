@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14edfc81-94a5-41a5-9c40-08d102bc51fb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/Main.java" afterPath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordList.java" afterPath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordList.java" />
-      <change beforePath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordListTest.java" afterPath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordListTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java" afterPath="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/iastate/cs228/hw2/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -26,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlphabetComparator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AlphabetComparator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="66" column="13" lean-forward="false" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+            <state relative-caret-position="59">
+              <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -56,7 +54,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java" />
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/test.txt" />
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/SorterFramework.java" />
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/Sorter.java" />
@@ -65,6 +62,7 @@
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/Main.java" />
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordList.java" />
         <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/WordListTest.java" />
+        <option value="$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java" />
       </list>
     </option>
   </component>
@@ -339,7 +337,7 @@
       <updated>1519243709337</updated>
       <workItem from="1519243716107" duration="112000" />
       <workItem from="1519243852797" duration="11892000" />
-      <workItem from="1519326211013" duration="6119000" />
+      <workItem from="1519326211013" duration="6832000" />
     </task>
     <servers />
   </component>
@@ -376,7 +374,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18123000" />
+    <option name="totallyTimeSpent" value="18836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="90" y="27" width="1366" height="741" extended-state="6" />
@@ -537,14 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="66" column="13" lean-forward="false" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/io/FileInputStream.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -697,6 +687,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/iastate/cs228/hw2/AlphabetComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
           <folding />
         </state>
       </provider>
