@@ -31,7 +31,7 @@ public class WordList implements Cloneable {
   public WordList(String[] contents) throws NullPointerException {
     // TODO
     try{
-      if(words == null){
+      if(words.equals(null)){
         throw new NullPointerException("Null Pointer");
       }
       words = contents;
