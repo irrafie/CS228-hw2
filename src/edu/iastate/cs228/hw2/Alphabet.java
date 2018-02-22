@@ -33,11 +33,12 @@ public class Alphabet {
             if(ordering == null){
                 throw new NullPointerException("Null Pointer");
             }
+
+            lookup = new CharAndPos[ordering.length];
             int i = 0;
 
             for(i = 0; i < ordering.length; i++){
-                lookup[i].position = i;
-                lookup[i].character = ordering[i];
+                lookup[i] = new CharAndPos(ordering[i],i);
             }
         }
         catch(NullPointerException e){
@@ -56,19 +57,23 @@ public class Alphabet {
      */
     public Alphabet(String filename) throws NullPointerException, FileNotFoundException {
         Scanner inputScan = null;
-
+        Scanner inputNum = null;
         try {
             if(filename == null){
                 throw new NullPointerException("Null Pointer");
             }
             inputScan = new Scanner(new FileReader(filename));
-
+            inputNum = new Scanner(new FileReader(filename));
             int var = 0;
 
-            while(inputScan.hasNext()){
-                lookup[var].position = var;
-                lookup[var].character = inputScan.next().charAt(0);
+            while(inputNum.hasNext()){
                 var++;
+                inputNum.next();
+            }
+            lookup = new CharAndPos[var];
+            for(int i = 0; i < var; i++) {
+                //System.out.println(inputScan.next());
+                lookup[i] = new CharAndPos(inputScan.next().charAt(0), i);
             }
             }
         catch(FileNotFoundException e){
@@ -135,6 +140,7 @@ public class Alphabet {
          */
 
         // TODO
+
 
         return -1;
     }

@@ -27,10 +27,7 @@ SorterFramework
    *    - the name of a file containing words containing only characters in the
    *      other file
    */
-  public
-  static
-  void
-  main(String[] args)
+  public static void main(String[] args)
   {
     // TODO check arguments
 
@@ -88,6 +85,7 @@ SorterFramework
            IllegalArgumentException
   {
     // TODO
+
   }
 
 

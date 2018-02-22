@@ -39,6 +39,9 @@ public abstract class Sorter {
      */
     public Sorter() {
         // TODO
+        totalWordsSorted = 0;
+        totalSortingTime = 0;
+        totalComparisons = 0;
     }
 
 
@@ -84,6 +87,7 @@ public abstract class Sorter {
      * @return the name of the sorter
      */
     public String getName() {
+
         return this.getClass().getSimpleName();
     }
 
@@ -96,9 +100,7 @@ public abstract class Sorter {
      * {@code sortWithStatistics()}
      */
     public int getTotalWordsSorted() {
-        // TODO
-
-        return 0;
+        return totalWordsSorted;
     }
 
     /**
@@ -110,9 +112,7 @@ public abstract class Sorter {
      * sorting within {@code sorterWithStatistics()}
      */
     public long getTotalSortingTime() {
-        // TODO
-
-        return 0;
+        return totalSortingTime;
     }
 
     /**
@@ -124,9 +124,7 @@ public abstract class Sorter {
      * sorting within {@code sorterWithStatistics()}
      */
     public long getTotalComparisons() {
-        // TODO
-
-        return 0;
+        return totalSortingTime;
     }
 
 
