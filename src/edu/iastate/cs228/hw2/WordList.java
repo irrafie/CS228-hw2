@@ -81,8 +81,12 @@ public class WordList implements Cloneable {
       }
   }
 
+    public WordList() {
 
-  /**
+    }
+
+
+    /**
    * Returns the number of elements in the list.
    *
    * @return

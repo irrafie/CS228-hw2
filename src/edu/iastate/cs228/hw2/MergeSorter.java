@@ -17,7 +17,6 @@ public class MergeSorter extends Sorter {
     if(toSort.length()<2){
       return;
     }
-    // TODO
     mergeSortRec(toSort, comp, 0,toSort.length()-1);
   }
 
@@ -26,12 +25,26 @@ public class MergeSorter extends Sorter {
       return;
     }
 
-    for(int i = start; start < end; i++){
-
-    }
-
-    int center = (start + end)/2;
+    int center = start + (end - start) / 2;
     mergeSortRec(list,comp,start,center);
     mergeSortRec(list,comp,center+1,end);
+    merge(list, comp,start, center, end);
+
   }
+
+  private void merge(WordList a,Comparator<String> comp,int start, int center, int end){
+    WordList temp = a.clone();
+    int left = start;
+    int right = center;
+    int left1 = center+1;
+    int right1 = end;
+    int i = left;
+
+    while((left <= right) && (left1 <= right1)){
+    //  if(comp.compare(a))
+    }
+
+  }
+
+
 }
