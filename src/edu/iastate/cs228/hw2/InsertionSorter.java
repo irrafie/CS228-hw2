@@ -22,7 +22,7 @@ public class InsertionSorter extends Sorter {
                 String a = toSort.get(i);
                 int b = i-1;
 
-                while(b >= 0 && toSort.get(b).compareTo(a) > 0){
+                while(b >= 0 && comp.compare(toSort.get(b),a) > 0){
                     //toSort.set(b+1,toSort.get(b));
                     toSort.swap(b+1,b);
                     b--;

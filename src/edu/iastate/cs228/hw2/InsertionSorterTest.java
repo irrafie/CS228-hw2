@@ -12,7 +12,7 @@ class InsertionSorterTest {
     void sort() throws FileNotFoundException {
         InsertionSorter temp = new InsertionSorter();
         String[] a = {"ac","ba", "ag", "ef", "ab", "eg"};
-        char[] b = {'b', 'a' , 'c', 'd', 'e','f','g'};
+        char[] b = {'b', 'c', 'd', 'e','f','g','a'};
         WordList test = new WordList(a);
         Alphabet ne = new Alphabet(b);
         AlphabetComparator comparator = new AlphabetComparator(ne);
