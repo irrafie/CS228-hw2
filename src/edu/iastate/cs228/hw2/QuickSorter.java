@@ -15,7 +15,15 @@ public class QuickSorter extends Sorter {
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException
   {
     // TODO
-    quickSortRec(toSort, comp, 0, toSort.length()-1);
+      try{
+          if(toSort == null){
+              throw new NullPointerException("Null Pointer");
+          }
+          quickSortRec(toSort, comp, 0, toSort.length()-1);
+      }
+      catch (NullPointerException e){
+          e.printStackTrace();
+      }
   }
 
   private void quickSortRec(WordList list, Comparator<String> comp, int start, int end) {
@@ -31,15 +39,14 @@ public class QuickSorter extends Sorter {
     // TODO
     String pivot = list.get(end);
     int i = (start-1);
-    for(int j = start; j < end; j++){
+    for(int j = start; j <= end; j++){
       if(comp.compare(list.get(j), pivot) < 0){
           i++;
-
           list.swap(i,j);
         }
     }
 
     list.swap(end,i+1);
-    return start+1;
+    return i+1;
   }
 }

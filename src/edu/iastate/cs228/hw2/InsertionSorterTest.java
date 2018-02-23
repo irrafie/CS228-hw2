@@ -9,18 +9,33 @@ import static org.junit.jupiter.api.Assertions.*;
 class InsertionSorterTest {
 
     @Test
-    void sort() throws FileNotFoundException {
-        QuickSorter temp = new QuickSorter();
+    void sort0() throws FileNotFoundException {
+        QuickSorter temp0 = new QuickSorter();
         String[] a = {"ac","ba", "ag", "ef", "ab", "eg"};
         char[] b = {'a', 'c', 'd', 'e','f','g','b'};
         WordList test = new WordList(a);
         Alphabet ne = new Alphabet(b);
         AlphabetComparator comparator = new AlphabetComparator(ne);
-        temp.sort(test,comparator);
+        temp0.sort(test,comparator);
         for(int i = 0; i < test.length(); i++){
             System.out.println(test.get(i) );
         }
-        System.out.println(temp.getTotalSortingTime());
+       // System.out.println(temp0.getTotalSortingTime());
+        // assertTrue(arrayCompare(test.getArray(), trues.getArray()));
+    }
+    @Test
+    void sort() throws FileNotFoundException {
+        InsertionSorter tempa = new InsertionSorter();
+        String[] a = {"a","b", "c", "d", "e", "f"};
+        char[] b = {'a', 'c', 'd', 'e','f','g','b'};
+        WordList test = new WordList(a);
+        Alphabet ne = new Alphabet(b);
+        AlphabetComparator comparator = new AlphabetComparator(ne);
+        tempa.sort(test,comparator);
+        for(int i = 0; i < test.length(); i++){
+            System.out.println(test.get(i) );
+        }
+       // System.out.println(temp.getTotalSortingTime());
        // assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 
@@ -36,6 +51,20 @@ class InsertionSorterTest {
             System.out.println(test.get(i) );
         }
         assertTrue(arrayCompare(test.getArray(), trues.getArray()));
+    }
+
+    @Test
+    void sort_2() throws FileNotFoundException {
+        QuickSorter temp = new QuickSorter();
+        WordList test = new WordList("10.wordlist.txt");
+        Alphabet te = new Alphabet("10.alphabet.txt");
+        WordList trues = new WordList("10.sortedlist.txt");
+        AlphabetComparator comparator = new AlphabetComparator(te);
+        temp.sort(test,comparator);
+        for(int i = 0; i < test.length(); i++){
+            System.out.println(test.get(i) );
+        }
+     //   assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 
 
