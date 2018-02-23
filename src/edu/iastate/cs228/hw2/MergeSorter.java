@@ -14,10 +14,24 @@ public class MergeSorter extends Sorter {
 
   @Override
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException {
+    if(toSort.length()<2){
+      return;
+    }
     // TODO
+    mergeSortRec(toSort, comp, 0,toSort.length()-1);
   }
 
   private void mergeSortRec(WordList list, Comparator<String> comp, int start, int end) {
-    // TODO
+    if(start >= end){
+      return;
+    }
+
+    for(int i = start; start < end; i++){
+
+    }
+
+    int center = (start + end)/2;
+    mergeSortRec(list,comp,start,center);
+    mergeSortRec(list,comp,center+1,end);
   }
 }

@@ -1,6 +1,7 @@
 package edu.iastate.cs228.hw2;
 
 
+import java.io.FileNotFoundException;
 import java.util.Comparator;
 
 
@@ -27,18 +28,26 @@ SorterFramework
    *    - the name of a file containing words containing only characters in the
    *      other file
    */
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) throws FileNotFoundException {
     // TODO check arguments
+    try {
+      if (args == null) {
+        throw new NullPointerException("Null Pointer");
+      }
 
-    Alphabet alphabet;
-    AlphabetComparator comparator;
-    WordList words;
-    Sorter[] sorters;
+    }
+    catch (NullPointerException e){
+      e.printStackTrace();
+    }
 
+    Alphabet alphabet = new Alphabet(args[0]);
+    AlphabetComparator comparator = new AlphabetComparator(alphabet);
+    WordList words = new WordList(args[1]);
+    Sorter[] sorters = {new MergeSorter(), new QuickSorter(), new InsertionSorter()};
     // TODO create appropriate values
 
     SorterFramework toRun = null;
+    toRun = new SorterFramework(sorters, comparator, words, words.length());
     toRun.run();
   }
 
@@ -104,5 +113,11 @@ SorterFramework
    */
   public void run() {
     // TODO
+    for(int i = 0; i < 3; i++){
+      System.out.println(sorters[i].getName());
+      System.out.println(words.length());
+      System.out.println(sorters[i].getTotalWordsSorted());
+      System.out.println(sorters[i].getTotalSortingTime());
+    }
   }
 }

@@ -66,20 +66,20 @@ public class AlphabetComparator implements Comparator<String> {
             }
 
             for(int x = 0; x < a.length() && x <b.length(); x++){
-                if((int)a.charAt(x) == (int)b.charAt(x)){
+                if(alphabet.getPosition(a.charAt(x)) == alphabet.getPosition(b.charAt(x))){
                     continue;
                 }
                 else{
-                    return (int)a.charAt(x) - (int)b.charAt(x);
+                    return alphabet.getPosition(a.charAt(x)) - alphabet.getPosition(b.charAt(x));
                 }
             }
 
             if(a.length() < b.length()){
-                return (int)a.charAt(b.length());
+                return alphabet.getPosition(a.charAt(b.length()));
             }
 
             else if(a.length() > b.length()){
-                return (int)b.charAt(a.length());
+                return alphabet.getPosition(b.charAt(a.length()));
             }
 
             else{

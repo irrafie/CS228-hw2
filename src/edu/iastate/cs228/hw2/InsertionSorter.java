@@ -14,6 +14,24 @@ public class InsertionSorter extends Sorter {
 
     @Override
     public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException {
-        // TODO
+        try{
+            if(toSort == null || comp == null){
+                throw new NullPointerException("Null Pointer");
+            }
+            for(int i = 0; i < toSort.length(); i++){
+                String a = toSort.get(i);
+                int b = i-1;
+
+                while(b >= 0 && toSort.get(b).compareTo(a) > 0){
+                    //toSort.set(b+1,toSort.get(b));
+                    toSort.swap(b+1,b);
+                    b--;
+                }
+                toSort.set(b+1, a);
+            }
+        }
+        catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 }

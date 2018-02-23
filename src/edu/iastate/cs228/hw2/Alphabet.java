@@ -116,7 +116,7 @@ public class Alphabet {
     public int getPosition(char c) {
         for(int i = 0; i < lookup.length; i++){
             if(lookup[i].character == c){
-                return i;
+                return lookup[i].position;
             }
         }
         return -1;
@@ -138,8 +138,25 @@ public class Alphabet {
          * instead of a binary search, allowing you to test other components with a
          * working (but slower) implementation
          */
-
         // TODO
+        //Char boleh be compared
+        //Suggestion: guna a.compareTo(b) which gives result 0 if sama, > 0 if a > b, < 0 if a < b
+
+        // compare c1 with c2 and assign result to res
+        // res = c1.compareTo(c2);
+        //
+        // String str1 = "Both values are equal ";
+        // String str2 = "First character is numerically greater";
+        // String str3 = "Second character is numerically greater";
+        //
+        // if( res == 0 ) {
+        //    System.out.println( str1 );
+        // } else if( res > 0 ) {
+        //    System.out.println( str2 );
+        // } else if( res < 0 ) {
+        //    System.out.println( str3 );
+        // }
+
 
 
         return -1;

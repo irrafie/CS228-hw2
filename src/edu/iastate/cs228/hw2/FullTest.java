@@ -1,6 +1,6 @@
 package edu.iastate.cs228.hw2;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 
