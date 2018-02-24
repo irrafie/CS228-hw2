@@ -14,7 +14,6 @@ public class QuickSorter extends Sorter {
   @Override
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException
   {
-    // TODO
       try{
           if(toSort == null){
               throw new NullPointerException("Null Pointer");
@@ -27,7 +26,6 @@ public class QuickSorter extends Sorter {
   }
 
   private void quickSortRec(WordList list, Comparator<String> comp, int start, int end) {
-    // TODO
       if(start < end){
          int index = partition(list,comp,start,end);
          quickSortRec(list, comp, start, index-1);
@@ -35,18 +33,17 @@ public class QuickSorter extends Sorter {
       }
   }
 
-  private int partition(WordList list, Comparator<String> comp, int start, int end) {
-    // TODO
-    String pivot = list.get(end);
+  private int partition(WordList hora, Comparator<String> comp, int start, int end) {
+    String pivot = hora.get(end);
     int i = (start-1);
-    for(int j = start; j <= end; j++){
-      if(comp.compare(list.get(j), pivot) < 0){
+    for(int j = start; j < end; j++){
+      if(comp.compare(hora.get(j), pivot) < 0){
           i++;
-          list.swap(i,j);
+          hora.swap(i,j);
         }
     }
 
-    list.swap(end,i+1);
+    hora.swap(end,i+1);
     return i+1;
   }
 }

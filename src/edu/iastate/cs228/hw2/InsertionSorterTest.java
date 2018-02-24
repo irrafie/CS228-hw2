@@ -42,9 +42,9 @@ class InsertionSorterTest {
     @Test
     void sort_1() throws FileNotFoundException {
         InsertionSorter temp = new InsertionSorter();
-        WordList test = new WordList("100.wordlist.txt");
-        Alphabet te = new Alphabet("100.alphabet.txt");
-        WordList trues = new WordList("100.sortedlist.txt");
+        WordList test = new WordList("10.wordlist.txt");
+        Alphabet te = new Alphabet("10.alphabet.txt");
+        WordList trues = new WordList("10.sortedlist.txt");
         AlphabetComparator comparator = new AlphabetComparator(te);
         temp.sort(test,comparator);
         for(int i = 0; i < test.length(); i++){
@@ -64,9 +64,22 @@ class InsertionSorterTest {
         for(int i = 0; i < test.length(); i++){
             System.out.println(test.get(i) );
         }
-     //   assertTrue(arrayCompare(test.getArray(), trues.getArray()));
+        assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 
+    @Test
+    void sort_3() throws FileNotFoundException {
+        MergeSorter temp = new MergeSorter();
+        WordList test = new WordList("10.wordlist.txt");
+        Alphabet te = new Alphabet("10.alphabet.txt");
+        WordList trues = new WordList("10.sortedlist.txt");
+        AlphabetComparator comparator = new AlphabetComparator(te);
+        temp.sort(test,comparator);
+        for(int i = 0; i < test.length(); i++){
+            System.out.println(test.get(i) );
+        }
+        assertTrue(arrayCompare(test.getArray(), trues.getArray()));
+    }
 
     @Test
     void sortWithStatistics() {

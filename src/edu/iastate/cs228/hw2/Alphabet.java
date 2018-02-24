@@ -4,6 +4,7 @@ package edu.iastate.cs228.hw2;
 import java.io.FileNotFoundException;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -40,6 +41,16 @@ public class Alphabet {
             for(i = 0; i < ordering.length; i++){
                 lookup[i] = new CharAndPos(ordering[i],i);
             }
+
+//            Arrays.sort(ordering);
+//            CharAndPos[] lookupTemp = new CharAndPos[ordering.length];
+//            for(int o = 0; o < lookup.length; o++){
+//                lookupTemp[o] = getPosition()
+//            }
+//
+//            for(int s = 0; s < lookup.length; s++){
+//                System.out.println(lookup[s].toString());
+//            }
         }
         catch(NullPointerException e){
          e.printStackTrace();

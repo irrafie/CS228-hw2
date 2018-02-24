@@ -11,40 +11,80 @@ import java.util.Comparator;
  * @author  Irfan Farhan Mohamad Rafie
  */
 public class MergeSorter extends Sorter {
+  WordList temp;
 
   @Override
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException {
-    if(toSort.length()<2){
-      return;
+    try{
+      if(toSort == null || comp == null){
+       throw new NullPointerException("Null Pointer");
+      }
     }
-    mergeSortRec(toSort, comp, 0,toSort.length()-1);
-  }
+    catch (NullPointerException e){
+      e.printStackTrace();
+    }
 
+
+    mergeSortRec(toSort, comp, 0, toSort.length()-1);
+  }
   private void mergeSortRec(WordList list, Comparator<String> comp, int start, int end) {
+
     if(start >= end){
       return;
     }
 
-    int center = start + (end - start) / 2;
-    mergeSortRec(list,comp,start,center);
-    mergeSortRec(list,comp,center+1,end);
-    merge(list, comp,start, center, end);
-
+    int mid = (end+start)/2;
+    mergeSortRec(list, comp, start, mid);
+    mergeSortRec(list, comp, mid+1, end);
+    merge(list, start, mid, end, comp);
   }
 
-  private void merge(WordList a,Comparator<String> comp,int start, int center, int end){
-    WordList temp = a.clone();
-    int left = start;
-    int right = center;
-    int left1 = center+1;
-    int right1 = end;
-    int i = left;
+  private void merge(WordList list, int low, int mid, int end, Comparator<String> comp){
+    int ha = mid - low + 1;
+    int ho = end - mid;
+    WordList tempA = list.cloneHalf(ha);
+    WordList tempB = list.cloneHalf(ho);
 
-    while((left <= right) && (left1 <= right1)){
-    //  if(comp.compare(a))
+    for(int x = 0; x < ha; ++x){
+      tempA.set(x, list.get(low+x));
     }
 
+    for(int y = 0; y < ho; ++y){
+      tempB.set(y, list.get(mid + 1 + y));
+    }
+
+    int i = 0;
+    int j = 0;
+
+    int a = low;
+
+    while(i < ha && j < ho){
+      if(comp.compare(tempA.get(i), tempB.get(j)) <  0){
+        list.set(a, tempA.get(i));
+        i++;
+      }
+      else{
+        list.set(a, tempB.get(j));
+        j++;
+      }
+      a++;
+    }
+
+    while(i < ha){
+      list.set(a, tempA.get(i));
+      i++;
+      a++;
+    }
+
+    while(j < ho){
+      list.set(a, tempB.get(j));
+      j++;
+      a++;
+    }
+
+
   }
+
 
 
 }

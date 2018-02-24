@@ -31,7 +31,7 @@ SorterFramework
   public static void main(String[] args) throws FileNotFoundException {
     // TODO check arguments
     try {
-      if (args == null) {
+      if (args[0] == null) {
         throw new NullPointerException("Null Pointer");
       }
 
@@ -94,7 +94,18 @@ SorterFramework
            IllegalArgumentException
   {
     // TODO
-
+    try{
+      if(sorters == null || comparator == null || words == null || totalToSort <= 0){
+        throw new NullPointerException("Null Pointer");
+      }
+    }
+    catch (NullPointerException e){
+      e.printStackTrace();
+    }
+    this.words = words;
+    this.sorters = sorters;
+    this.comparator = comparator;
+    this.totalToSort = totalToSort;
   }
 
 
@@ -111,13 +122,17 @@ SorterFramework
    *  - the number of elements sorted per second
    *  - the total number of comparisons performed
    */
-  public void run() {
+  public void run() throws FileNotFoundException {
     // TODO
     for(int i = 0; i < 3; i++){
+      long StartTime = System.nanoTime();
+      sorters[i].sort(words, comparator);
+      long EndTime = System.nanoTime();
+      long duration = (EndTime - StartTime)/1000000;
       System.out.println(sorters[i].getName());
       System.out.println(words.length());
-      System.out.println(sorters[i].getTotalWordsSorted());
-      System.out.println(sorters[i].getTotalSortingTime());
+      //System.out.println(sorters[i].getTotalWordsSorted());
+      System.out.println(duration + "ms");
     }
   }
 }

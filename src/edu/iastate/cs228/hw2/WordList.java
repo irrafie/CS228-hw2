@@ -199,4 +199,17 @@ public class WordList implements Cloneable {
 
     return next;
   }
+
+  public WordList cloneHalf(int size){
+      int j = 0;
+      String[] temp = new String[size];
+      while(j < size){
+          temp[j] = words[j];
+
+          j++;
+      }
+
+      WordList tempo = new WordList(temp);
+      return tempo;
+  }
 }
