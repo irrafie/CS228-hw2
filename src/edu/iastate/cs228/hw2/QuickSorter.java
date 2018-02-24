@@ -15,12 +15,11 @@ public class QuickSorter extends Sorter {
   @Override
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException
   {
-      CountingComparator<String> countingComp = new CountingComparator<>(comp);
       try{
           if(toSort == null){
               throw new NullPointerException("Null Pointer");
           }
-          quickSortRec(toSort, countingComp, 0, toSort.length()-1);
+          quickSortRec(toSort, comp, 0, toSort.length()-1);
       }
       catch (NullPointerException e){
           e.printStackTrace();
