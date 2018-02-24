@@ -18,6 +18,7 @@ public abstract class Sorter {
      */
     private int totalWordsSorted;
 
+    CountingComparator comparator;
     /**
      * The total time, in milliseconds, used by this sorter to run sorts.
      * Only modified in {@link #sortWithStatistics(WordList, Comparator, int)
@@ -38,7 +39,6 @@ public abstract class Sorter {
      * any sorts.
      */
     public Sorter() {
-        // TODO
         totalWordsSorted = 0;
         totalSortingTime = 0;
         totalComparisons = 0;
@@ -78,7 +78,29 @@ public abstract class Sorter {
      */
     public void sortWithStatistics(WordList toSort, Comparator<String> comp, int totalToSort) throws NullPointerException,
             IllegalArgumentException {
-        // TODO
+        try{
+            if(toSort == null || comp == null){
+                throw new NullPointerException("Null Pointer");
+            }
+
+            if(totalToSort < 0){
+                throw new IllegalArgumentException("Illegal Argument");
+            }
+        }
+        catch (NullPointerException e){
+            e.printStackTrace();
+        }
+        catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+        comparator = new CountingComparator(comp);
+        long Start = System.currentTimeMillis();
+        while(totalWordsSorted < totalToSort){
+            sort(toSort,comparator);
+            totalWordsSorted = totalWordsSorted + toSort.length();
+        }
+        totalSortingTime = System.currentTimeMillis() - Start;
+
     }
 
     /**
@@ -124,7 +146,7 @@ public abstract class Sorter {
      * sorting within {@code sorterWithStatistics()}
      */
     public long getTotalComparisons() {
-        return totalSortingTime;
+        return comparator.getCount();
     }
 
 
@@ -135,7 +157,7 @@ public abstract class Sorter {
      * @param <T> the type of objects compared
      */
     /* already completed */
-    private static class CountingComparator<T> implements Comparator<T> {
+    static class CountingComparator<T> implements Comparator<T> {
         /**
          * The comparator used to perform comparisons.
          */

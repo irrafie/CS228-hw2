@@ -2,6 +2,7 @@ package edu.iastate.cs228.hw2;
 
 
 import java.util.Comparator;
+import java.util.Random;
 
 
 /**
@@ -14,11 +15,12 @@ public class QuickSorter extends Sorter {
   @Override
   public void sort(WordList toSort, Comparator<String> comp) throws NullPointerException
   {
+      CountingComparator<String> countingComp = new CountingComparator<>(comp);
       try{
           if(toSort == null){
               throw new NullPointerException("Null Pointer");
           }
-          quickSortRec(toSort, comp, 0, toSort.length()-1);
+          quickSortRec(toSort, countingComp, 0, toSort.length()-1);
       }
       catch (NullPointerException e){
           e.printStackTrace();
@@ -34,8 +36,11 @@ public class QuickSorter extends Sorter {
   }
 
   private int partition(WordList hora, Comparator<String> comp, int start, int end) {
-    String pivot = hora.get(end);
-    int i = (start-1);
+      Random rand = new Random();
+      int num = start + rand.nextInt(end-start);
+      String pivot = hora.get(end);
+      int i = (start-1);
+
     for(int j = start; j < end; j++){
       if(comp.compare(hora.get(j), pivot) < 0){
           i++;

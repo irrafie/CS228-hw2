@@ -17,9 +17,7 @@ class InsertionSorterTest {
         Alphabet ne = new Alphabet(b);
         AlphabetComparator comparator = new AlphabetComparator(ne);
         temp0.sort(test,comparator);
-        for(int i = 0; i < test.length(); i++){
-            System.out.println(test.get(i) );
-        }
+
        // System.out.println(temp0.getTotalSortingTime());
         // assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
@@ -32,9 +30,6 @@ class InsertionSorterTest {
         Alphabet ne = new Alphabet(b);
         AlphabetComparator comparator = new AlphabetComparator(ne);
         tempa.sort(test,comparator);
-        for(int i = 0; i < test.length(); i++){
-            System.out.println(test.get(i) );
-        }
        // System.out.println(temp.getTotalSortingTime());
        // assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
@@ -47,9 +42,6 @@ class InsertionSorterTest {
         WordList trues = new WordList("10.sortedlist.txt");
         AlphabetComparator comparator = new AlphabetComparator(te);
         temp.sort(test,comparator);
-        for(int i = 0; i < test.length(); i++){
-            System.out.println(test.get(i) );
-        }
         assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 
@@ -61,9 +53,6 @@ class InsertionSorterTest {
         WordList trues = new WordList("10.sortedlist.txt");
         AlphabetComparator comparator = new AlphabetComparator(te);
         temp.sort(test,comparator);
-        for(int i = 0; i < test.length(); i++){
-            System.out.println(test.get(i) );
-        }
         assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 
@@ -75,9 +64,6 @@ class InsertionSorterTest {
         WordList trues = new WordList("10.sortedlist.txt");
         AlphabetComparator comparator = new AlphabetComparator(te);
         temp.sort(test,comparator);
-        for(int i = 0; i < test.length(); i++){
-            System.out.println(test.get(i) );
-        }
         assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 

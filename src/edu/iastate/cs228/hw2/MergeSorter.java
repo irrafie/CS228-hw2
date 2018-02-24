@@ -32,11 +32,11 @@ public class MergeSorter extends Sorter {
     if(start >= end){
       return;
     }
-
+    CountingComparator<String> countingComp = new CountingComparator<>(comp);
     int mid = (end+start)/2;
-    mergeSortRec(list, comp, start, mid);
-    mergeSortRec(list, comp, mid+1, end);
-    merge(list, start, mid, end, comp);
+    mergeSortRec(list, countingComp, start, mid);
+    mergeSortRec(list, countingComp, mid+1, end);
+    merge(list, start, mid, end, countingComp);
   }
 
   private void merge(WordList list, int low, int mid, int end, Comparator<String> comp){

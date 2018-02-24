@@ -75,11 +75,11 @@ public class AlphabetComparator implements Comparator<String> {
             }
 
             if(a.length() < b.length()){
-                return alphabet.getPosition(a.charAt(b.length()));
+                return 1;
             }
 
             else if(a.length() > b.length()){
-                return alphabet.getPosition(b.charAt(a.length()));
+                return -1;
             }
 
             else{

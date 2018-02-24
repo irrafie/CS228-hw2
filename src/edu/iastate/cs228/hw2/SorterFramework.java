@@ -45,7 +45,6 @@ SorterFramework
     WordList words = new WordList(args[1]);
     Sorter[] sorters = {new MergeSorter(), new QuickSorter(), new InsertionSorter()};
     // TODO create appropriate values
-
     SorterFramework toRun = null;
     toRun = new SorterFramework(sorters, comparator, words, words.length());
     toRun.run();
@@ -95,11 +94,17 @@ SorterFramework
   {
     // TODO
     try{
-      if(sorters == null || comparator == null || words == null || totalToSort <= 0){
+      if(sorters == null || comparator == null || words == null){
         throw new NullPointerException("Null Pointer");
+      }
+      if(totalToSort < 0){
+        throw new IllegalArgumentException("Illegal Argument");
       }
     }
     catch (NullPointerException e){
+      e.printStackTrace();
+    }
+    catch (IllegalArgumentException e){
       e.printStackTrace();
     }
     this.words = words;
@@ -108,7 +113,7 @@ SorterFramework
     this.totalToSort = totalToSort;
   }
 
-
+  long average = 0;
   /**
    * Runs all sorters using
    * {@link Sorter#sortWithStatistics(WordList, Comparator, int)
@@ -125,14 +130,13 @@ SorterFramework
   public void run() throws FileNotFoundException {
     // TODO
     for(int i = 0; i < 3; i++){
-      long StartTime = System.nanoTime();
-      sorters[i].sort(words, comparator);
-      long EndTime = System.nanoTime();
-      long duration = (EndTime - StartTime)/1000000;
+      sorters[i].sortWithStatistics(words, comparator, 1001);
       System.out.println(sorters[i].getName());
       System.out.println(words.length());
-      //System.out.println(sorters[i].getTotalWordsSorted());
-      System.out.println(duration + "ms");
+      System.out.println(sorters[i].getTotalWordsSorted());
+      System.out.println(sorters[i].getTotalSortingTime());
+      System.out.println(sorters[i].getTotalSortingTime()/(sorters[i].getTotalWordsSorted()/words.length()));
+      System.out.println(sorters[i].getTotalComparisons());
     }
   }
 }
