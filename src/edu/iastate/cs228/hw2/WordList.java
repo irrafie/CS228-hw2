@@ -111,7 +111,7 @@ public class WordList implements Cloneable {
   {
     // TODO
     try{
-        if(idx < 0 || idx > length()){
+        if(idx < 0 || idx >= length()){
             throw new IndexOutOfBoundsException("Index Out of Bounds");
         }
 

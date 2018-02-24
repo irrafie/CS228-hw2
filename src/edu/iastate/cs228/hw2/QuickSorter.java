@@ -27,27 +27,51 @@ public class QuickSorter extends Sorter {
   }
 
   private void quickSortRec(WordList list, Comparator<String> comp, int start, int end) {
-      if(start < end){
-         int index = partition(list,comp,start,end);
-         quickSortRec(list, comp, start, index-1);
-         quickSortRec(list,comp,index+1,end);
-      }
+     int index = partition(list,comp,start,end);
+
+     if(start < index -1){
+         quickSortRec(list, comp, start, index - 1);
+     }
+
+     if(end > index){
+         quickSortRec(list, comp, index, end);
+     }
   }
 
   private int partition(WordList hora, Comparator<String> comp, int start, int end) {
-      Random rand = new Random();
-      int num = start + rand.nextInt(end-start);
-      String pivot = hora.get(end);
-      int i = (start-1);
+      Random rand = new Random(100);
+      int mid = rand.nextInt(end);
+        String pivot = hora.get(start);
 
-    for(int j = start; j < end; j++){
-      if(comp.compare(hora.get(j), pivot) < 0){
-          i++;
-          hora.swap(i,j);
+        while(start <= end){
+            while(comp.compare(hora.get(start), pivot) < 0){
+                start++;
+            }
+
+            while(comp.compare(hora.get(end), pivot) > 0){
+                end--;
+            }
+
+            if(start <= end){
+                hora.swap(start,end);
+                start++;
+                end--;
+            }
         }
-    }
 
-    hora.swap(end,i+1);
-    return i+1;
+//      int i = (start-1);
+//
+//    for(int j = start; j < end; j++){
+//      if(comp.compare(hora.get(j), pivot) < 0){
+//          i++;
+//          hora.swap(i,j);
+//        }
+//    }
+//
+//    hora.swap(end,i+1);
+    return start;
   }
+
+
+
 }

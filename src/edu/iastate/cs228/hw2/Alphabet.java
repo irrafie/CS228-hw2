@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.lang.Character.*;
 
 /**
  * A class representing an ordering of characters that can be queried to know
@@ -36,10 +37,28 @@ public class Alphabet {
             }
 
             lookup = new CharAndPos[ordering.length];
-            int i = 0;
 
-            for(i = 0; i < ordering.length; i++){
+
+            for(int i = 0; i < ordering.length; i++){
                 lookup[i] = new CharAndPos(ordering[i],i);
+            }
+            CharAndPos temp;
+            for(int i = 0; i < ordering.length; i++){
+                for (int x = 0; x < ordering.length-1; x++){
+                    Character a = lookup[x].character;
+                    Character b = lookup[x+1].character;
+
+                    if(a.compareTo(b) == 0);
+                    else if(a.compareTo(b) > 0){
+                        temp = lookup[x+1];
+                        lookup[x+1] = lookup[x];
+                        lookup[x] = temp;
+                    }
+                }
+            }
+
+            for(int i = 0; i < ordering.length; i++){
+                System.out.println(lookup[i].toString());
             }
 
 //            Arrays.sort(ordering);
@@ -147,6 +166,7 @@ public class Alphabet {
      * value if the given character does not have an entry in the table
      */
     private int binarySearch(char toFind) {
+        Character toFin = toFind;
         /*
          * note: for testing, you can perform a simple search through the array
          * instead of a binary search, allowing you to test other components with a
@@ -163,9 +183,25 @@ public class Alphabet {
         //  if > traverse right
         //  if == return i
 
+        return binarySearch(toFind, 0, lookup.length);
+    }
 
+    private int binarySearch(Character toFind, int l, int r){
+        if(r >= 1) {
+            int mid = l + (r - l) / 2;
+            if (toFind.compareTo(lookup[mid].character) == 0) {
+                return lookup[mid].position;
+            }
 
-        return -1;
+            if (toFind.compareTo(lookup[mid].character) > 0) {
+                return binarySearch(toFind, l, mid-1);
+            }
+
+            return binarySearch(toFind, mid+1, r);
+        }
+
+        else
+            return -1;
     }
 
 

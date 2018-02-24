@@ -94,13 +94,14 @@ public abstract class Sorter {
             e.printStackTrace();
         }
         comparator = new CountingComparator(comp);
+        comparator.reset();
         long Start = System.currentTimeMillis();
         while(totalWordsSorted < totalToSort){
             sort(toSort,comparator);
             totalWordsSorted = totalWordsSorted + toSort.length();
         }
         totalSortingTime = System.currentTimeMillis() - Start;
-
+        totalComparisons = comparator.getCount();
     }
 
     /**

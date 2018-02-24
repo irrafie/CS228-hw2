@@ -52,7 +52,10 @@ class InsertionSorterTest {
         Alphabet te = new Alphabet("10.alphabet.txt");
         WordList trues = new WordList("10.sortedlist.txt");
         AlphabetComparator comparator = new AlphabetComparator(te);
-        temp.sort(test,comparator);
+        temp.sortWithStatistics(test,comparator, 10000);
+        for(int i =0; i < test.length(); i++){
+            System.out.println(test.get(i));
+        }
         assertTrue(arrayCompare(test.getArray(), trues.getArray()));
     }
 

@@ -134,7 +134,7 @@ SorterFramework
       System.out.println(sorters[i].getName());
       System.out.println(words.length());
       System.out.println(sorters[i].getTotalWordsSorted());
-      System.out.println(sorters[i].getTotalSortingTime());
+      System.out.println(sorters[i].getTotalSortingTime() + " ms");
       System.out.println(sorters[i].getTotalSortingTime()/(sorters[i].getTotalWordsSorted()/words.length()));
       System.out.println(sorters[i].getTotalComparisons());
     }
